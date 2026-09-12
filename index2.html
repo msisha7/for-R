@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>For You ✨</title>
-    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@500;700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --dark: #0f111a;
@@ -16,7 +16,6 @@
         /* --- 1. Global Animated Background --- */
         body {
             font-family: 'Poppins', sans-serif;
-            /* Deep, romantic night sky gradient */
             background: linear-gradient(-45deg, #05070e, #130a1c, #0a1128, #180a1a);
             background-size: 400% 400%;
             animation: mainBgAnimation 25s ease infinite;
@@ -35,6 +34,7 @@
         .hero {
             position: relative;
             height: 100vh;
+            height: 100dvh;
             display: flex;
             flex-direction: column;
             justify-content: center;
@@ -70,25 +70,30 @@
             filter: drop-shadow(2px 2px 4px rgba(0,0,0,0.5));
         }
         
+        /* UPDATED: FONT CHANGED TO CURSIVE */
         .subtitle {
-            font-size: clamp(1rem, 2vw, 1.2rem);
-            line-height: 1.6;
+            font-family: 'Dancing Script', cursive;
+            font-size: clamp(1.8rem, 3.5vw, 2.2rem);
+            line-height: 1.4;
             margin-bottom: 30px;
             opacity: 0;
             transform: translateY(20px);
             transition: all 1s ease 0.5s;
             text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
+            letter-spacing: 1px;
         }
         .subtitle.visible { opacity: 1; transform: translateY(0); }
         
+        /* UPDATED: FONT CHANGED TO CURSIVE */
         .btn {
             display: inline-block;
             padding: 15px 40px;
-            font-size: 1.1rem;
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
             color: #fff;
             background: linear-gradient(45deg, #ff007f, #7928ca);
             border: none;
-            border-radius: 30px;
+            border-radius: 35px;
             cursor: pointer;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -100,7 +105,7 @@
         .btn.visible { opacity: 1; transform: translateY(0); }
         .btn:hover { transform: translateY(-5px) scale(1.05); box-shadow: 0 15px 35px rgba(255, 0, 127, 0.7); }
 
-        /* --- Ambient Pink Particles --- */
+        /* --- Ambient Pink Particles (RESTORED) --- */
         #particles { 
             position: fixed; 
             top: 0; left: 0; width: 100vw; height: 100vh; 
@@ -120,7 +125,7 @@
             100% { transform: translateY(-10vh) scale(1.5); opacity: 0; }
         }
 
-        /* --- NEW: Twinkling Stars Background --- */
+        /* --- Twinkling Stars Background (RESTORED) --- */
         #twinkling-stars {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -138,7 +143,7 @@
             50% { opacity: 0.8; transform: scale(1.2); box-shadow: 0 0 8px #fff; }
         }
 
-        /* --- NEW: Shooting Stars --- */
+        /* --- Shooting Stars (RESTORED) --- */
         #shooting-stars {
             position: fixed;
             top: 0; left: 0; width: 100vw; height: 100vh;
@@ -150,14 +155,12 @@
             position: absolute;
             width: 150px;
             height: 2px;
-            /* Fades out at the tail, bright at the head */
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.8), rgba(255,255,255,1));
             border-radius: 50%;
             transform-origin: right center;
             animation: shoot linear forwards;
         }
         .shooting-star::after {
-            /* The bright glowing head of the shooting star */
             content: '';
             position: absolute;
             right: 0;
@@ -219,11 +222,14 @@
             text-shadow: 1px 1px 15px rgba(255, 126, 179, 0.2);
         }
 
+        /* UPDATED: FONT CHANGED TO CURSIVE */
         .memory-text p {
-            font-size: 1.3rem;
-            line-height: 1.8;
-            color: #cbd5e1;
-            font-weight: 300;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            line-height: 1.5;
+            color: #e2e8f0;
+            font-weight: 500;
+            letter-spacing: 1px;
         }
 
         .memory-img {
@@ -234,7 +240,7 @@
             padding: 20px;
         }
 
-        /* --- Image Tilt and Glow Animation --- */
+        /* --- Image Tilt and Glow Animation (RESTORED animateGradient) --- */
         .img-frame {
             position: relative;
             padding: 12px;
@@ -305,22 +311,47 @@
 
         .show-element {
             opacity: 1;
-            transform: translateX(0);
+            transform: translate(0, 0) !important;
         }
 
-        /* --- Responsive Layout for Phones --- */
+        /* --- MOBILE FIX (PRESERVED) --- */
         @media (max-width: 992px) {
+            .hero-content {
+                padding: 30px 20px;
+                width: 95%;
+            }
+            .title {
+                font-size: 3rem;
+                min-height: auto;
+                margin-bottom: 15px;
+            }
+            .subtitle {
+                font-size: 1.6rem;
+                margin-bottom: 25px;
+            }
             .memory-row, .memory-row.reverse {
                 flex-direction: column !important;
                 text-align: center;
-                padding: 60px 20px;
+                padding: 40px 15px;
                 min-height: auto;
+                gap: 20px;
             }
             .memory-text {
-                padding: 0 10px 40px 10px;
+                padding: 0 10px 10px 10px;
             }
+            .memory-text h3 {
+                font-size: 2.5rem;
+            }
+            .memory-text p {
+                font-size: 1.8rem;
+            }
+            .img-frame img {
+                max-width: 100%;
+                max-height: 55vh;
+            }
+            /* Change animation to slide-up on mobile to prevent messy horizontal overlap */
             .hidden-left, .hidden-right {
-                transform: translateY(100px);
+                transform: translateY(60px);
             }
         }
         
@@ -333,11 +364,17 @@
             position: relative;
             z-index: 5;
         }
+        
+        .footer p {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.5rem;
+            color: #d1d5db;
+        }
     </style>
 </head>
 <body>
 
-    <!-- Magic Background Elements -->
+    <!-- Magic Background Elements (RESTORED COUNTS) -->
     <div id="twinkling-stars"></div>
     <div id="shooting-stars"></div>
     <div id="particles"></div>
@@ -378,12 +415,11 @@
         }
         setTimeout(typeWriter, 500);
 
-        // --- Twinkling Stars Background ---
+        // --- Twinkling Stars Background (RESTORED 150 count) ---
         const twinkleContainer = document.getElementById('twinkling-stars');
         for (let i = 0; i < 150; i++) {
             let s = document.createElement('div');
             s.className = 'twinkle-star';
-            // Mostly tiny stars, a few larger ones
             let size = Math.random() < 0.9 ? (Math.random() * 2 + 1) : (Math.random() * 2 + 2);
             s.style.width = size + 'px';
             s.style.height = size + 'px';
@@ -394,34 +430,25 @@
             twinkleContainer.appendChild(s);
         }
 
-        // --- Shooting Stars ---
+        // --- Shooting Stars (RESTORED frequency) ---
         const shootingStarsContainer = document.getElementById('shooting-stars');
         function createShootingStar() {
             let star = document.createElement('div');
             star.className = 'shooting-star';
-            
-            // Random start height, biased towards upper half
             star.style.top = (Math.random() * 70) + 'vh';
-            
-            // Fast duration so they look like real shooting stars
             let duration = (Math.random() * 1.5) + 1.2; 
             star.style.animationDuration = duration + 's';
-            
             shootingStarsContainer.appendChild(star);
-            
-            setTimeout(() => {
-                star.remove();
-            }, duration * 1000);
+            setTimeout(() => { star.remove(); }, duration * 1000);
         }
 
         function spawnStarLoop() {
             createShootingStar();
-            // Wait 2 to 6 seconds before the next one
             setTimeout(spawnStarLoop, (Math.random() * 4000) + 2000); 
         }
         setTimeout(spawnStarLoop, 1500);
 
-        // --- Ambient Glowing Particles ---
+        // --- Ambient Glowing Particles (RESTORED 30 count) ---
         const particlesContainer = document.getElementById('particles');
         for (let i = 0; i < 30; i++) {
             let p = document.createElement('div');
@@ -467,7 +494,6 @@
             const textClass = isEven ? 'hidden-right' : 'hidden-left';
             const imgClass = isEven ? 'hidden-left' : 'hidden-right';
             
-            // Alternating base tilt (-2 to -4 on one side, 2 to 4 on the other)
             let tiltAngle = isEven ? (2 + Math.random()*2) : (-2 - Math.random()*2);
 
             row.innerHTML = `
@@ -476,7 +502,6 @@
                     <p>${item.desc}</p>
                 </div>
                 <div class="memory-img ${imgClass}">
-                    <!-- Pass tilt angle as a CSS variable for the frame -->
                     <div class="img-frame" style="--tilt: ${tiltAngle}deg;">
                         <img src="${i}.jpg" alt="Picture ${i}" loading="lazy">
                     </div>
@@ -485,7 +510,7 @@
             galleryContainer.appendChild(row);
         });
 
-        // --- Intersection Observer for Scroll Trigger ---
+        // --- Intersection Observer for Scroll Trigger (RESTORED) ---
         const observerOptions = {
             threshold: 0.3 
         };
